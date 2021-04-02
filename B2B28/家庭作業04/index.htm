@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+		<title>家庭作業04</title>
+<style>
+	h4{color: red};
+	p{margin: 5px}
+	div{color: blue}
+	table{
+		border: 1px solid;
+		border-collapse: collapse;
+	}
+	tr, td{
+		border: 1px solid;
+	}
+</style>
+<body>
+	<table border="1">
+	<script>
+		document.write("<h4>九九乘法表</h4><br/>");
+		for(var i = 1;i<=9;i++){
+			document.write("<tr>");
+			for(var j = 1;j <=9; j++){
+				document.write("<td>"+"<div>"+j+"x"+i+"="+j*i+"<div>"+"</td>");
+			}
+		}
+	</script>
+	</table>
+</body>
+</head>
+</html> 
