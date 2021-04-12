@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+		<title>課堂作業06</title>
+	<style>
+		h4{
+			color: red;
+		}
+		
+		div{
+			color: blue;
+			margin: 5px;
+		}
+	</style>
+</head>
+	<body>
+<form id="form01">
+		姓名:<input type="text" name="name01" value="廖翊辰"><br>
+	收件住址:<input type="text" address="address01" value="新北市汐止區大同路三段619號28樓之3"><br>
+	電話:<input type="text" tel="tel01" value="0937228150"><br>
+	電子郵件:<input type="text" email="email01" value="tiffany900501@gmail.com"><br>
+	指定送貨日期:<input type="date" date="date01"><br>
+	水果種類:<br><input type="radio" name="fruit" id= "fruit01" value="高山梨(一箱)">高山梨(一盒) 715元 <br>
+	<input type="radio" name="fruit" id = "fruit02" value="大湖草莓(一台斤)">大湖草莓(一台斤) 380元 <br>
+	<input type="radio" name="fruit" id = "fruit03" value="聖女小番茄(一箱)">巨峰葡萄(一盒) 390元 <br>
+</form>
+	<button onclick="shoppingInFo()"><h4>結帳</h4></button>
+		<div id="demo"></div>
+	<script>
+		function shoppingInFo(){
+			var x = document.getElementById("form01");
+			var item = "";
+			var price = 0;
+			var text = "<h4>您的購物資訊如下:</h4>";
+			var i;
+			for (i = 0; i<5; i++){
+				switch(i){
+					case 0:
+						item = "姓名: ";
+						break;
+					case 1:
+						item = "收件住址: ";
+						break;
+					case 2:
+						item = "電話: ";
+						break;
+					case 3:
+						item = "電子郵件: ";
+						break;
+					case 4:
+						item = "指定送貨日期: ";
+						break;
+				}
+				text += item +  x.elements[i].value + "<br>";
+			}
+			for(i = 5; i<=7; i++){
+				if(x.elements[i].checked == true){
+					switch(i){
+						case 5: price=715; break;
+						case 6: price=380; break;
+						case 7: price=390; break;
+					}
+					text += "水果種類: " + x.elements[i].value + "<br>";
+					text += "水果合計: " + price + "元<br>";
+				}
+			}
+			document.getElementById("demo").innerHTML = text;
+		}
+		</script>
+	</body>
+</html>
