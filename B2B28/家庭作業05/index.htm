@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+ <head>
+        <meta charset = "UTF-8">
+        <title>家庭作業05</title>
+        <style>
+            h4 {
+                color: red;
+            }
+            div {
+                color: blue;
+                margin: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <form id = "form01">
+            姓名: <input type = "text" name = "name01" value = "廖翊辰"><br>
+            收件住址: <input type = "text" name = "address01" value = "新北市汐止區大同路三段619號28樓之3"><br>
+            電話: <input type = "tel" name = "tel01" value = "0937228150"><br>
+            電子郵件: <input type = "email" name = "email01" value = "tiffany900501@gmail.com"><br>
+            指定送貨日期: <input type = "date" name = "date01"><br>
+            書籍種類: <br><input type = "radio" name = "book" id = "book01" value = "故事台灣史1~4集套書(4本)">故事台灣史1~4集套書(4本) 1520元<br>
+                        <input type = "radio" name = "book" id = "book02" value = "被討厭的勇氣套書(2本)">被討厭的勇氣套書(2本) 620元<br>
+                        <input type = "radio" name = "book" id = "book03" value = "天龍八部新修版套書(5本)">天龍八部平裝版1~5集套書(5本) 1260元<br>
+			<input type="radio" name="book" id="book04" value="鬼滅之刃漫畫全集(22本)">鬼滅之刃漫畫全集(22本) 2200元<br>
+			<input type="radio" name="book" id="book05" value="再別康橋(1本)">再別康橋(1本) 168元<br>
+        </form>
+            <button onclick = "shoppingInfo()"><h4>結帳</h4></button>
+            <div id = "demo"></div>
+		<script>
+                function shoppingInfo() {
+                    var x = document.getElementById("form01");
+                    var item = "";
+                    var price = 0;
+                    var text = "<h4>您的購物資訊如下: </h4>";
+                    var i;
+					text += "<table border='1' width='90%' cellspacing='0' cellpadding='0'>";
+                    for (i = 0; i < 5; i++) {
+                        switch(i) {
+                            case 0:
+                                item = "姓名: ";
+                                break;
+                            case 1:
+                                item = "收件住址: ";
+                                break;
+                            case 2:
+                                item = "電話: ";
+                                break;
+                            case 3:
+                                item = "電子郵件: ";
+                                break;
+                            case 4: 
+                                item = "指定送貨日期: ";
+                                break;
+                        }
+						text += "<td>" + item + "</td>" + "<td>" + x.elements[i].value +"</td>";
+						text += "</tr>";
+                    }
+                    for (i = 5; i <= 9; i++) {
+                        if (x.elements[i].checked == true) {
+                            switch(i) {
+                                case 5: price = 1520; break;
+                                case 6: price = 620; break;
+                                case 7: price = 1260; break;
+								case 8: price = 2200; break;
+								case 9: price = 168; break;
+                            }
+				text += "<tr><td>書籍種類: </td>" + "<td>" + x.elements[i].value + "</td></tr>";
+                text += "<tr><td>價格合計: </td>" + "<td>" + price + "元</td><tr>";
+
+                        }
+						text += "</tr>";
+                    }
+					text += "</table>";
+                    document.getElementById("demo").innerHTML = text;
+                }
+            </script>
+			</table>
+    </body>
+</html>
